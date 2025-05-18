@@ -27,3 +27,12 @@ additional commands:
 # install deployctl
 deno install -gArf jsr:@deno/deployctl
 ```
+
+## GitHub Actions
+
+write a workflow file `.github/workflows/ci.yml`.
+
+edit setting in `https://dash.deno.com/projects/{project}/settings`
+ -> `Git Integration` -> `Deploy from GitHub Actions`
+
+or else will be permission denied.
