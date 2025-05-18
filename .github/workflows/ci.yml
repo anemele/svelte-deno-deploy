@@ -47,5 +47,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: svelte-deno-deploy
-          entrypoint: 'build/index.js' # same as `out` option in config
-          root: '.' # if necessary
+          root: 'build'
+          entrypoint: 'index.js' # same as `out` option in config
