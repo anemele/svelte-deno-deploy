@@ -26,7 +26,9 @@ jobs:
           deno-version: v2.x
 
       - name: Build step
-        run: "deno task build" # 📝 Update the build command(s) if necessary
+        run: |
+          deno install
+          deno task build
 
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
