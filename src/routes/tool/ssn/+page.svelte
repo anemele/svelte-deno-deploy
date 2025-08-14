@@ -51,20 +51,37 @@
             idInfo = null;
             return;
         }
+
+        // Area has been checked above
         let area = areaCode.get(id.substring(0, 2))!;
-        let birth = new Date(
-            parseInt(id.substring(6, 10)),
-            parseInt(id.substring(10, 12)) - 1,
-            parseInt(id.substring(12, 14)),
-        );
+
+        // Check birth date
+        let year = parseInt(id.substring(6, 10));
+        let month = parseInt(id.substring(10, 12));
+        let day = parseInt(id.substring(12, 14));
+        if (
+            year < 1900 ||
+            year > new Date().getFullYear() ||
+            month > 12 ||
+            day > 31
+        ) {
+            idInfo = null;
+            return;
+        }
+        let birth = `${year}年${month}月${day}日`;
+
+        // Get sex
         let sex = parseInt(id.substring(16, 17)) % 2 === 0 ? "女" : "男";
+
+        // Update id info
         idInfo = {
             id: id,
             area: area,
-            birth: birth.toLocaleDateString(),
+            birth: birth,
             sex: sex,
         };
     }
+
     let idStr = "";
     let idInfo: IdInfo | null = null;
 
